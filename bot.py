@@ -69,8 +69,11 @@ ADMIN_IDS = [
 app = FastAPI(title="Агроном-бот MAX")
 bot = Bot(MAX_BOT_TOKEN)
 dp = Dispatcher()
-main_loop = asyncio.get_event_loop()
-
+try:
+    main_loop = asyncio.get_running_loop()
+except RuntimeError:
+    main_loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(main_loop)
 # ─────────────────────────────
 # Данные
 # ─────────────────────────────
