@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+maxapi[fastapi]
+requests
+yookassa
+python-dotenv
