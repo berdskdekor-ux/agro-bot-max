@@ -31,9 +31,9 @@ import requests
 # ─────────────────────────────
 # Переменные окружения
 # ─────────────────────────────
-MAX_BOT_TOKEN = os.getenv ( " MAX_BOT_TOKEN" )
-YOOKASSA_SHOP_ID = os.getenv ( " YOOKASSA_SHOP_ID" )
-YOOKASSA_SECRET_KEY = os.getenv ( " YOOKASSA_SECRET_KEY" )
+MAX_BOT_TOKEN = os.getenv ("MAX_BOT_TOKEN")
+YOOKASSA_SHOP_ID = os.getenv ("YOOKASSA_SHOP_ID")
+YOOKASSA_SECRET_KEY = os.getenv ("YOOKASSA_SECRET_KEY")
 YANDEX_API_KEY = os.getenv("YANDEX_API_KEY")
 YANDEX_FOLDER_ID = os.getenv("YANDEX_FOLDER_ID")
 YANDEX_SEARCH_TOKEN = os.getenv("YANDEX_SEARCH_TOKEN")
