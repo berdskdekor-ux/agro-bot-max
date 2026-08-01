@@ -895,3 +895,13 @@ async def on_startup():
     print("Фоновые задачи запущены")
 
 print("Бот готов к запуску. Ожидается MAX_BOT_TOKEN")
+@app.post("/max_webhook")
+async def max_webhook(request: Request):
+    try:
+        update = await request.json()
+        print("Получен update от MAX:", update)
+        await dp.feed_update(bot, update)
+        return {"ok": True}
+    except Exception as e:
+        print("Ошибка в webhook:", e)
+        return {"ok": False}
