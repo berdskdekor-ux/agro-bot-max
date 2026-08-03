@@ -398,8 +398,12 @@ def help_text():
 # ─────────────────────────────
 async def answer(event, text: str, keyboard=None):
     attachments = [keyboard] if keyboard else None
-    await event.message.answer(text, attachments=attachments)
-
+    try:
+        # Пробуем отредактировать существующее сообщение
+        await event.message.edit_text(text, attachments=attachments)
+    except Exception:
+        # Если не получилось — отправляем новое
+        await event.message.answer(text, attachments=attachments)
 # ─────────────────────────────
 # Старт бота
 # ─────────────────────────────
