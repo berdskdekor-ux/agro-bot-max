@@ -75,14 +75,6 @@ try:
 except RuntimeError:
     main_loop = asyncio.new_event_loop()
     asyncio.set_event_loop(main_loop)
-@dp.message_created()
-async def test_handler(event: MessageCreated):
-    print("=== СРАБОТАЛ test_handler ===")
-    try:
-        await event.message.answer("Привет! Бот работает 🌱")
-        print("Ответ успешно отправлен")
-    except Exception as e:
-        print("Ошибка при отправке ответа:", e)    
 # ─────────────────────────────
 # Данные
 # ─────────────────────────────
