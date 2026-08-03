@@ -899,6 +899,7 @@ async def health():
 @app.on_event("startup")
 async def on_startup():
     print("Запуск бота MAX...")
+    await dp.startup(bot)                    # ← добавили эту строку
     threading.Thread(target=reminders_checker, daemon=True).start()
     threading.Thread(target=premium_expiration_checker, daemon=True).start()
     print("Фоновые задачи запущены")
