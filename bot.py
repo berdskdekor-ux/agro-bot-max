@@ -899,17 +899,23 @@ print("Бот готов к запуску. Ожидается MAX_BOT_TOKEN")
 async def max_webhook(request: Request):
     try:
         from maxapi.methods.types.getted_updates import process_update_webhook
-        
+
         update = await request.json()
-        print("Получен update от MAX:", update)
-        
+        print("=== ПОЛУЧЕН UPDATE ===")
+        print(update)
+
         event_object = await process_update_webhook(
             event_json=update,
             bot=bot
         )
+        print("Event object создан:", type(event_object))
+
         await dp.handle(event_object)
-        
+        print("dp.handle выполнен успешно")
+
         return {"ok": True}
     except Exception as e:
-        print("Ошибка в webhook:", e)
+        import traceback
+        print("Ошибка в webhook:")
+        print(traceback.format_exc())
         return {"ok": False}
