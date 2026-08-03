@@ -67,7 +67,8 @@ ADMIN_IDS = [
 # FastAPI + MAX
 # ─────────────────────────────
 app = FastAPI(title="Агроном-бот MAX")
-bot = Bot(MAX_BOT_TOKEN)
+print("MAX_BOT_TOKEN при старте:", "ЕСТЬ" if MAX_BOT_TOKEN else "НЕТ")
+bot = Bot(token=MAX_BOT_TOKEN) if MAX_BOT_TOKEN else Bot()
 dp = Dispatcher()
 try:
     main_loop = asyncio.get_running_loop()
